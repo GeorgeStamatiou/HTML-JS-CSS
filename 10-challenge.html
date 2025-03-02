@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CHALLENGE</title>
+  <style>
+    .js-select {
+      border: none;
+      width: 70px;
+      height: 30px;
+      color: black;
+      background-color: rgb(216, 211, 211);
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .js-selected {
+      background-color: rgb(0, 0, 0);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button class="js-gaming js-select" onclick="
+    selectAndUnselect(gaming, music, tech)
+    ">Gaming</button>
+
+  <button class="js-music js-select" onclick="
+  selectAndUnselect(music, gaming, tech)
+  ">Music</button>
+
+  <button class="js-tech js-select" onclick="
+  selectAndUnselect(tech, music, gaming)
+  ">Tech</button>
+
+  <script>
+
+    // Starting off by having a function to merely select options, I then wanted to change functinoality to only have 1 selected at a time.
+
+    // it was either hard code:
+
+    /*
+    Insert hard code here - I thought of this route and it would've been easy, just messy and time consuming.
+    */
+
+    // Then, using 3 parameters in the function and  passing 3 arguments for each button, I could then do it.
+
+    const gaming = document.querySelector('.js-gaming');
+    const music = document.querySelector('.js-music');
+    const tech = document.querySelector('.js-tech');
+
+    function selectAndUnselect(button, other1, other2) {
+      if (!button.classList.contains('js-selected')) {
+        button.classList.add('js-selected'); other1.classList.remove('js-selected'); other2.classList.remove('js-selected')
+      } else if (button.classList.contains('js-selected')) {
+        button.classList.remove('js-selected')
+      }
+    };
+  </script>
+</body>
+
+</html>
